@@ -34,6 +34,7 @@ item_dialogues = ExtResource("11_ehuts")
 [node name="Player2d" type="Node2D" parent="First Floor"]
 
 [node name="Player" parent="First Floor/Player2d" instance=ExtResource("2_8vvfa")]
+position = Vector2(10, 10)
 inventory_data = ExtResource("4_ixli0")
 maximum_health = 10
 
