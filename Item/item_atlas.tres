@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b40tt5v7fldup"]
+
+[ext_resource type="Texture2D" uid="uid://cpulfrsim5ega" path="res://Item/inventory_sprites/PlayStation - Resident Evil Directors Cut - Items.png" id="1_ypnlu"]
+
+[resource]
+atlas = ExtResource("1_ypnlu")
+region = Rect2(0, 0, 43, 33)

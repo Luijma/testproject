@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkp6ouubjdwkl"]
+
+[ext_resource type="Script" path="res://inventory/inventory.gd" id="1_oh3en"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dobgs"]
+bg_color = Color(0.0588235, 0, 0.423529, 0)
+
+[sub_resource type="Theme" id="Theme_60l76"]
+
+[node name="Inventory" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dobgs")
+script = ExtResource("1_oh3en")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_60l76")
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 2

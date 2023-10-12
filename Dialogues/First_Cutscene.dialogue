@@ -1,0 +1,25 @@
+~ this_is_a_node_title
+set Game.player_can_move = false
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => this_is_a_node_title
+- End the conversation => END
+Nathan: For more information see the online documentation.
+set Game.player_can_move = true
+=> END
+
+~ start
+set Game.player_can_move = false
+Chatter: Woo! I think this is it. The meet and greet...
+Chatter: But why does it look so...
+Chatter: ...
+Chatter: Well, whatever. I just gotta go ahead and start looking for him.
+Chatter: Gotta find the---
+: *CRASH*
+Chatter: What was that? It came from the left. Was that a plate?
+set Game.player_can_move = true
+=> END

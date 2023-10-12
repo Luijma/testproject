@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://co8dw5g6ol536"]
+
+[ext_resource type="Script" path="res://Item/item_data.gd" id="1_vsa4f"]
+[ext_resource type="Texture2D" uid="uid://cpulfrsim5ega" path="res://Item/inventory_sprites/PlayStation - Resident Evil Directors Cut - Items.png" id="2_nepq7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by6sf"]
+atlas = ExtResource("2_nepq7")
+region = Rect2(0, 0, 43, 33)
+
+[resource]
+script = ExtResource("1_vsa4f")
+name = "Knife"
+description = "A knife. Probably don't want to use this in battle, though."
+stackable = true
+is_weapon = false
+fire_rate = 0
+hp_value = 0
+texture = SubResource("AtlasTexture_by6sf")

@@ -1,0 +1,34 @@
+~ this_is_a_node_title
+
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => this_is_a_node_title
+- End the conversation => END
+Nathan: For more information see the online documentation.
+
+=> END
+
+~ pick_up_item_y_n
+set Game.player_can_move = false
+set Game.item_pick_up_underway = true
+: Pick up {{Game.item_interacted_with.item_data.name}}?
+- Yes
+	Chatter has picked up the {{Game.item_interacted_with.item_data.name}}
+	set Game.item_pick_up_accepted = true
+- No
+	Chatter Left the {{Game.item_interacted_with.item_data.name}}
+	set Game.item_pick_up_accepted = false
+set Game.item_pickup_up_underway = false
+set Game.player_can_move = true
+=> END
+
+~ no_space_for_item
+set Game.player_can_move = false
+: Chatter doesn't have space for the {{Game.item_interacted_with.item_data.name}}
+: Chatter decided to leave it there for now.
+set Game.player_can_move = true
+=> END

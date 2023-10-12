@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=13 format=3 uid="uid://cwlu3p8admayb"]
+
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="1_x3mtw"]
+[ext_resource type="Resource" uid="uid://bxtyt64fp4c3t" path="res://Item/items/gun.tres" id="2_8qhyp"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="3_i27rt"]
+[ext_resource type="Resource" uid="uid://co8dw5g6ol536" path="res://Item/items/Knife.tres" id="4_klo3n"]
+
+[sub_resource type="Resource" id="Resource_h2nvq"]
+script = ExtResource("3_i27rt")
+item_data = ExtResource("2_8qhyp")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_qbwni"]
+script = ExtResource("3_i27rt")
+item_data = ExtResource("4_klo3n")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_wsfhw"]
+script = ExtResource("3_i27rt")
+item_data = ExtResource("2_8qhyp")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_dropw"]
+script = ExtResource("3_i27rt")
+item_data = ExtResource("2_8qhyp")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_1d77d"]
+script = ExtResource("3_i27rt")
+item_data = ExtResource("2_8qhyp")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_g16m3"]
+script = ExtResource("3_i27rt")
+item_data = ExtResource("2_8qhyp")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_55job"]
+script = ExtResource("3_i27rt")
+item_data = ExtResource("2_8qhyp")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_et1i1"]
+script = ExtResource("3_i27rt")
+item_data = ExtResource("2_8qhyp")
+quantity = 1
+
+[resource]
+script = ExtResource("1_x3mtw")
+slot_datas = Array[ExtResource("3_i27rt")]([SubResource("Resource_h2nvq"), SubResource("Resource_qbwni"), SubResource("Resource_wsfhw"), SubResource("Resource_dropw"), SubResource("Resource_1d77d"), SubResource("Resource_g16m3"), SubResource("Resource_55job"), SubResource("Resource_et1i1")])

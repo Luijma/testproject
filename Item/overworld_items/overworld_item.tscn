@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5v7pw2ntasxe"]
+
+[ext_resource type="Script" path="res://OverworldItem.gd" id="1_byi51"]
+[ext_resource type="Texture2D" uid="uid://drqwuqvdkq570" path="res://icon.svg" id="3_ers2q"]
+[ext_resource type="PackedScene" uid="uid://s142fbhpydgb" path="res://Interaction/Interaction Area/InteractionArea.tscn" id="4_n2uqm"]
+
+[node name="OverworldItem" type="Node2D"]
+script = ExtResource("1_byi51")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.238281, 0.244141)
+texture = ExtResource("3_ers2q")
+
+[node name="InteractionArea" parent="." instance=ExtResource("4_n2uqm")]
+interact_label = "Pick Up"
+interact_type = "inventory_pickup"
+interact_value = "Item has been picked up!"
+
+[connection signal="item_picked_up" from="." to="." method="_on_item_picked_up"]
