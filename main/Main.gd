@@ -1,20 +1,22 @@
 extends Node
-
+class_name main_game
 
 signal toggle_game_paused(is_paused: bool)
 
 @export var dialogue_resource: DialogueResource
 @export var item_dialogues: DialogueResource
 
-@onready var player = $"First Floor/Player2d/Player"
-
+@onready var player = $Player2d/Player
 
 @onready var inventory_interface = $UI/InventoryInterface
 @onready var bullet_manager = $BulletManager
 @onready var enemy_manager = $EnemyManager
-
+@onready var world = $World
 
 const no_item = preload("res://Item/items/no_item.tres")
+const overworld_item = preload("res://Item/overworld_items/overworld_item.tscn")
+const dropped_item_texture = preload("res://icon.svg")
+const Slot = preload("res://inventory/slot.tscn")
 
 
 
@@ -25,6 +27,7 @@ func _ready():
 	inventory_interface.item_was_equiped.connect(_equip_player_item)
 	inventory_interface.item_was_equiped.connect(player._item_equiped)
 	inventory_interface.item_was_discarded.connect(player.inventory_data.remove_item)
+	inventory_interface.item_was_discarded.connect(_on_item_discarded)
 	inventory_interface.set_player_inventory_data(player.inventory_data)
 	
 	# BULLET CODES
@@ -81,4 +84,18 @@ func _on_overworld_item_picked_up(slot_data):
 	if !player.inventory_data.add_item(slot_data):
 		DialogueManager.show_example_dialogue_balloon(item_dialogues, "no_space_for_item")
 	else:
-		Game.item_successfully_picked_up.emit(slot_data)
+		pass #Game.item_successfully_picked_up.emit(slot_data)
+
+func _on_item_discarded(index: int, slot_data: SlotData):
+	print("_on_item_discarded")
+	var item = overworld_item.instantiate()
+	item.slot_data = Slot.instantiate()
+	item.slot_data = slot_data
+	item.slot_data.item_data = slot_data.item_data
+	item.slot_data.item_data.item_id = item.slot_data.item_data.name
+	item.slot_data.item_data.item_id += "_dropped"
+	print(item.slot_data.item_data.item_id)
+	world.get_child(0).add_child(item)
+	item.position = player.position
+	item.sprite_2d.texture = dropped_item_texture
+	print("item should now exist")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_10"
+type="Resource"
+uid="uid://mlfxj35j4d63"
+path="res://.godot/imported/doorway_dialogues.dialogue-56628b2e35b731097442afc0ec5d1d71.tres"
+
+[deps]
+
+source_file="res://doorway_dialogues.dialogue"
+dest_files=["res://.godot/imported/doorway_dialogues.dialogue-56628b2e35b731097442afc0ec5d1d71.tres"]
+
+[params]
+
+defaults=true

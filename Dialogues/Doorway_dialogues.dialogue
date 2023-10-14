@@ -1,0 +1,34 @@
+~ this_is_a_node_title
+
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => this_is_a_node_title
+- End the conversation => END
+Nathan: For more information see the online documentation.
+
+=> END
+
+~ door_is_locked_with_item
+set Game.player_can_move = false
+: The door is locked. But you have the key. So...
+- Open it
+	: You Unlocked the door
+	set Game.door_unlock_accepted = true
+- Leave it locked, like a psychopath
+	set Game.door_unlock_accepted = false
+	: Congrats!
+	: You made no progress.
+	: It's locked.
+	: Disgusting.
+set Game.player_can_move = true
+=> END
+
+~ door_is_locked_with_no_item
+set Game.player_can_move = false
+: You don't got the key, stinky.
+set Game.player_can_move = true
+=> END

@@ -12,6 +12,7 @@ script = ExtResource("1_c52em")
 name = "gun"
 description = "A gun for self defense against the Habbit minions around the mansion"
 stackable = false
+item_id = "gun_dining_room"
 is_weapon = true
 fire_rate = 2
 hp_value = -4

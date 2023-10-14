@@ -365,9 +365,6 @@ scale = Vector2(1, 0.96875)
 sprite_frames = SubResource("SpriteFrames_5jeth")
 animation = &"Idle"
 
-[node name="Camera2D" type="Camera2D" parent="Enemy"]
-zoom = Vector2(3, 3)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy"]
 autoplay = "down_Idle"
 libraries = {

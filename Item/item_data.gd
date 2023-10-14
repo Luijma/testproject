@@ -5,6 +5,7 @@ class_name ItemData
 @export_multiline var description: String = ""
 
 @export var stackable: bool = false
+@export var item_id = name
 @export var is_weapon: bool = false
 @export var fire_rate: int
 @export var hp_value: int

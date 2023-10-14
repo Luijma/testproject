@@ -1,27 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3r1ab2drkvfs"]
+[gd_scene load_steps=14 format=3 uid="uid://c3r1ab2drkvfs"]
 
 [ext_resource type="Script" path="res://main/Main.gd" id="1_v6equ"]
 [ext_resource type="Resource" uid="uid://ccqu5caecadbp" path="res://Dialogues/First_Cutscene.dialogue" id="2_3mq3n"]
 [ext_resource type="PackedScene" uid="uid://dwa8si8w0titb" path="res://Player/Player.tscn" id="2_8vvfa"]
+[ext_resource type="Script" path="res://main/Level_Loader.gd" id="4_4rk0h"]
 [ext_resource type="PackedScene" uid="uid://i7g2tbb285kn" path="res://UI/hud.tscn" id="4_h25yw"]
-[ext_resource type="Resource" uid="uid://cwlu3p8admayb" path="res://inventory/test_inv.tres" id="4_ixli0"]
-[ext_resource type="PackedScene" uid="uid://db6svt6uwgvrf" path="res://first_floor.tscn" id="5_7opqx"]
-[ext_resource type="PackedScene" uid="uid://ciex8mka1g3gf" path="res://Enemies/enemy_2d.tscn" id="5_uxiqf"]
 [ext_resource type="PackedScene" uid="uid://bkp6ouubjdwkl" path="res://inventory.tscn" id="5_wdww8"]
 [ext_resource type="Script" path="res://inventory/Inventory_Interface.gd" id="6_cwhjr"]
 [ext_resource type="Texture2D" uid="uid://x0aj623fhopi" path="res://UI/Images/shadely_profile1.png" id="7_cbomp"]
 [ext_resource type="Texture2D" uid="uid://djvlk1dppr2wh" path="res://Item/inventory_sprites/Inventory-Menu-Sprite.png" id="7_gvuxq"]
-[ext_resource type="PackedScene" uid="uid://b5v7pw2ntasxe" path="res://Item/overworld_items/overworld_item.tscn" id="7_jl515"]
-[ext_resource type="Resource" uid="uid://co8dw5g6ol536" path="res://Item/items/Knife.tres" id="8_3ddjr"]
-[ext_resource type="Script" path="res://inventory/slot_data.gd" id="9_tiwu6"]
 [ext_resource type="Script" path="res://main/BulletManager.gd" id="10_yb7pm"]
 [ext_resource type="Resource" uid="uid://cr5a3adq5i3rm" path="res://Dialogues/item_dialogues.dialogue" id="11_ehuts"]
 [ext_resource type="Script" path="res://main/EnemyManager.gd" id="12_twlh3"]
-
-[sub_resource type="Resource" id="Resource_iau5c"]
-script = ExtResource("9_tiwu6")
-item_data = ExtResource("8_3ddjr")
-quantity = 1
+[ext_resource type="Resource" uid="uid://d364pxihkgxw2" path="res://inventory/chatter_inventory.tres" id="13_g7ibe"]
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -29,22 +20,8 @@ script = ExtResource("1_v6equ")
 dialogue_resource = ExtResource("2_3mq3n")
 item_dialogues = ExtResource("11_ehuts")
 
-[node name="First Floor" parent="." instance=ExtResource("5_7opqx")]
-
-[node name="Player2d" type="Node2D" parent="First Floor"]
-
-[node name="Player" parent="First Floor/Player2d" instance=ExtResource("2_8vvfa")]
-position = Vector2(10, 10)
-inventory_data = ExtResource("4_ixli0")
-maximum_health = 10
-
-[node name="OverworldItem" parent="First Floor" instance=ExtResource("7_jl515")]
-position = Vector2(15, -49)
-slot_data = SubResource("Resource_iau5c")
-dialogue_resource = ExtResource("11_ehuts")
-dialogue_start = "pick_up_item_y_n"
-
-[node name="Enemy2d" parent="First Floor" instance=ExtResource("5_uxiqf")]
+[node name="World" type="Node2D" parent="."]
+script = ExtResource("4_4rk0h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -56,7 +33,7 @@ offset_bottom = -1.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="InventoryInterface" type="Control" parent="UI"]
+[node name="InventoryInterface" type="Control" parent="UI" groups=["Inventory_Interface"]]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -135,7 +112,10 @@ script = ExtResource("10_yb7pm")
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("12_twlh3")
 
-[connection signal="enemy_shot_by_bullet" from="First Floor/Enemy2d/Enemy" to="." method="_on_enemy_enemy_shot_by_bullet"]
+[node name="Player2d" type="Node2D" parent="."]
+process_mode = 1
 
-[editable path="First Floor/OverworldItem"]
-[editable path="First Floor/Enemy2d"]
+[node name="Player" parent="Player2d" instance=ExtResource("2_8vvfa")]
+position = Vector2(10, 10)
+inventory_data = ExtResource("13_g7ibe")
+maximum_health = 10

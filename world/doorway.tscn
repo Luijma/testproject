@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c28ikg36ihsv4"]
+
+[ext_resource type="Script" path="res://Doorway.gd" id="1_w0q5r"]
+[ext_resource type="Script" path="res://Interaction/Interaction Area/InteractionArea.gd" id="2_2smjn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75sds"]
+size = Vector2(32, 18)
+
+[node name="Doorway" type="Node2D"]
+script = ExtResource("1_w0q5r")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_2smjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-5.5, 9.5)
+shape = SubResource("RectangleShape2D_75sds")

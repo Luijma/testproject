@@ -13,7 +13,7 @@ const Item_Option = preload("res://Item/item_option.tscn")
 const no_item = preload("res://Item/items/no_item.tres")
 signal item_was_equiped(item_data)
 signal item_unequiped(item_data)
-signal item_was_discarded(slot_data: SlotData)
+signal item_was_discarded(index:int, slot_data: SlotData)
 
 const weapon_item_options = ["EQUIP", "RELOAD", "DISCARD", "UNEQUIP"]
 const healing_item_options = ["CONSUME", "DISCARD", "CANCEL"]
@@ -98,7 +98,7 @@ func _handle_item_option_selection(button: Button):
 			equiped_item_texture.texture = null
 			print("ITEM UNEQUIPED")
 		"DISCARD":
-			item_was_discarded.emit(grabbed_slot_index)
+			item_was_discarded.emit(grabbed_slot_index, grabbed_slot_data)
 			print("DISCARD Detected")
 		_:
 			print("Unhandled option Selected: " + button.text)

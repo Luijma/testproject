@@ -27,8 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://lc7gwjn0od3j" path="res://walk-prototype/tile023.png" id="25_r6cgf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_patbb"]
-radius = 6.0
-height = 16.0
+radius = 5.0
+height = 10.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5jeth"]
 animations = [{
@@ -363,6 +363,7 @@ script = ExtResource("1_8nhhr")
 maximum_health = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_patbb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -393,6 +394,7 @@ position = Vector2(15, 0)
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="InteractionArea" type="Area2D" parent="Node2D"]
+visible = false
 z_index = 1
 collision_layer = 0
 collision_mask = 2

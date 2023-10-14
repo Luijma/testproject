@@ -8,13 +8,13 @@
 script = ExtResource("1_byi51")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(0, 2.38419e-07)
 scale = Vector2(0.238281, 0.244141)
 texture = ExtResource("3_ers2q")
 
 [node name="InteractionArea" parent="." instance=ExtResource("4_n2uqm")]
 interact_label = "Pick Up"
-interact_type = "inventory_pickup"
 interact_value = "Item has been picked up!"
 
-[connection signal="item_picked_up" from="." to="." method="_on_item_picked_up"]
+[editable path="InteractionArea"]

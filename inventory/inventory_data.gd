@@ -20,7 +20,7 @@ func grab_slot_data(index: int) -> SlotData:
 func on_slot_clicked(index: int, button: int) -> void:
 	inventory_interact.emit(self, index, button)
 	
-func remove_item(index: int) -> void:
+func remove_item(index: int, slot_data: SlotData) -> void:
 	var item_to_remove = slot_datas[index]
 	print("remove_item: removing " + item_to_remove.item_data.name + " on index: " + str(index))
 	slot_datas[index] = null
@@ -37,3 +37,9 @@ func add_item(slot_data: SlotData) -> bool:
 
 func transfer_to_storage(index_player: int, index_storage: int):
 	pass
+	
+func item_in_inventory(item_name: String):
+	for index in slot_datas.size():
+		if slot_datas[index] and slot_datas[index].item_data.item_id == item_name:
+			return true
+	return false

@@ -131,6 +131,7 @@ func handle_player_hit():
 
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0, area)
+	print("entered interaction area")
 	update_interactions()
 
 
