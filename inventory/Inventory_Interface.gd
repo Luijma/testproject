@@ -15,8 +15,8 @@ signal item_was_equiped(item_data)
 signal item_unequiped(item_data)
 signal item_was_discarded(index:int, slot_data: SlotData)
 
-const weapon_item_options = ["EQUIP", "RELOAD", "DISCARD", "UNEQUIP"]
-const healing_item_options = ["CONSUME", "DISCARD", "CANCEL"]
+const weapon_item_options = ["EQUIP", "RELOAD", "UNEQUIP", "CANCEL"]
+const healing_item_options = ["CONSUME", "CANCEL"]
 const key_item_options = ["EQUIP", "CANCEL", "UNEQUIP"]
 
 #Selected Items

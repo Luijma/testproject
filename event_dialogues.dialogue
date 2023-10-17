@@ -1,0 +1,19 @@
+~ this_is_a_node_title
+
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => this_is_a_node_title
+- End the conversation => END
+Nathan: For more information see the online documentation.
+
+=> END
+
+~ ghostly_figure_encountered
+set Game.player_can_move = false
+Chatter: I would like to unsubscribe from this experience.
+set Game.player_can_move = true
+=> END

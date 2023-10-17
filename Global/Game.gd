@@ -19,7 +19,9 @@ var player_can_move = false
 signal item_pick_up_attempted(slot_data: SlotData)
 signal item_successfully_picked_up(slot_data: SlotData)
 signal door_entered_succesful(next_scene: String, new_player_position: Vector2)
-signal door_unlocked()
+signal door_unlocked(unlocked: bool)
+
+
 
 var item_interacted_with: SlotData = null
 
@@ -30,11 +32,16 @@ var item_pick_up_accepted = false:
 			print("item_picked_up in Game")
 		else:
 			item_interacted_with = null
-var door_unlock_accepted:
+			item_pick_up_attempted.emit(item_interacted_with)
+var door_unlock_accepted = false:
 	set (value):
 		if (value == true):
-			door_unlocked.emit()
+			door_unlock_accepted = true
+			door_unlocked.emit(true)
 			print("door unlocked (GAME)")
+		else:
+			door_unlock_accepted = false
+			door_unlocked.emit(false)
 
 var state_dictionary = {
 	"has_gun": false,

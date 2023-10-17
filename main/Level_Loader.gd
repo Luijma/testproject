@@ -27,7 +27,8 @@ func load_lobby_scene(next_scene):
 	
 func _on_door_enter_successful(next_scene, new_player_position):
 	ResourceLoader.load_threaded_request(next_scene)
-	get_child(0).queue_free()
+	for child in get_children():
+		child.queue_free()
 	print("entering " + next_scene)
 	var scene_resource = ResourceLoader.load(next_scene)
 	

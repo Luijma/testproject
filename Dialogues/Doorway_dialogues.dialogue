@@ -30,5 +30,11 @@ set Game.player_can_move = true
 ~ door_is_locked_with_no_item
 set Game.player_can_move = false
 : You don't got the key, stinky.
+set Game.door_unlock_accepted = false
 set Game.player_can_move = true
 => END
+
+~ have_not_seen_ghostly_figure
+set Game.player_can_move = false
+Chatter: I should check out where that noise came from, first.
+set Game.player_can_move = true

@@ -15,11 +15,11 @@ signal picked_up_item(overworld_item: OverworldItem)
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	if Game.collected_items.has(item_id):
-		if(not "_dropped" in item_id):
-			print("_dropped detected. avoiding self destruct")
-		else:
-			print("_dropped not detected. entering self destruct")
-			self.queue_free()
+		#if(not "_dropped" in item_id):
+		#	print("_dropped detected. avoiding self destruct")
+		#else:
+		#	print("_dropped not detected. entering self destruct")
+		self.queue_free()
 
 	
 func _on_interact():
@@ -28,9 +28,14 @@ func _on_interact():
 	if (dialogue_resource):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
+		print("Awaiting signal game_pick_up_attempted")
 		await Game.item_pick_up_attempted
 		if(Game.item_interacted_with):
+			print("Accepted item")
 			_on_item_succesfully_picked_up(slot_data)
+		else:
+			print("Entered else for item denied")
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	interaction_area.can_interact = true
 	#item_interacted.emit(self)	
 
@@ -38,4 +43,5 @@ func _on_interact():
 func _on_item_succesfully_picked_up(slot_data):
 	self.queue_free()
 	Game.collected_items[item_id] = "picked_up"
+	print("collected items item id added: " + str(Game.collected_items.keys()))
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

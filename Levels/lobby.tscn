@@ -1660,21 +1660,31 @@ tile_set = SubResource("TileSet_rn4k4")
 format = 2
 layer_0/tile_data = PackedInt32Array(-458753, 1638400, 18, -393217, 1638400, 19, -327681, 1638400, 20, -262145, 1638400, 21, -524288, 1572864, 18, -458752, 1572864, 19, -393216, 1572864, 20, -327680, 1572864, 21, -524290, 1572864, 17, -458754, 1572864, 18, -393218, 1572864, 19, -327682, 1572864, 20, -262146, 1572864, 21, -524289, 1638400, 17, -589824, 1572864, 17, -589823, 1638400, 17, -524287, 1638400, 18, -458751, 1638400, 19, -393215, 1638400, 20, -327679, 1638400, 21)
 
-[node name="Dining_Room" parent="." instance=ExtResource("3_ljodb")]
+[node name="Dining_Room_Door" parent="." instance=ExtResource("3_ljodb")]
 position = Vector2(-128, -125)
 
-[node name="InteractionArea" parent="Dining_Room" index="0"]
+[node name="InteractionArea" parent="Dining_Room_Door" index="0"]
 position = Vector2(-5, 19)
-interact_label = "Enter Door"
 interact_data = Vector2(181.5, 61.5)
 interact_value = "dining_room"
 
-[node name="CollisionShape2D" parent="Dining_Room/InteractionArea" index="0" groups=["Level"]]
+[node name="CollisionShape2D" parent="Dining_Room_Door/InteractionArea" index="0" groups=["Level"]]
 position = Vector2(6, -15)
+
+[node name="Art_Exhibit_Door" parent="Dining_Room_Door" instance=ExtResource("3_ljodb")]
+event_required = true
+event_id = "have_not_seen_ghostly_figure"
+
+[node name="InteractionArea" parent="Dining_Room_Door/Art_Exhibit_Door" index="0"]
+position = Vector2(255, 0)
+
+[node name="CollisionShape2D" parent="Dining_Room_Door/Art_Exhibit_Door/InteractionArea" index="0"]
+position = Vector2(1, 3)
 
 [node name="OverworldItem" parent="." instance=ExtResource("4_ogbmh")]
 position = Vector2(-67, -49)
 slot_data = SubResource("Resource_57l8r")
 item_id = "test_item"
 
-[editable path="Dining_Room"]
+[editable path="Dining_Room_Door"]
+[editable path="Dining_Room_Door/Art_Exhibit_Door"]

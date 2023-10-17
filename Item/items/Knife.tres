@@ -12,6 +12,7 @@ script = ExtResource("1_vsa4f")
 name = "Knife"
 description = "A knife. Probably don't want to use this in battle, though."
 stackable = true
+item_id = null
 is_weapon = false
 fire_rate = 0
 hp_value = 0

@@ -3395,28 +3395,26 @@ tile_set = SubResource("TileSet_2da7f")
 format = 2
 layer_0/tile_data = PackedInt32Array(-851986, 655360, 12, -786450, 655360, 13, -720914, 655360, 14, -655378, 655360, 15, -851985, 720896, 12, -786449, 720896, 13, -720913, 720896, 14, -655377, 720896, 15, -458779, 1310720, 10, -393243, 1310720, 11, -458778, 1376256, 10, -393242, 1376256, 11, -458777, 1441792, 10, -393241, 1441792, 11, -458776, 1507328, 10, -393240, 1507328, 11, -327706, 1179648, 8, -262170, 1179648, 9, -327705, 1245184, 8, -262169, 1245184, 9)
 
-[node name="Lobby" parent="." instance=ExtResource("3_hxbwa")]
+[node name="Lobby_Door" parent="." instance=ExtResource("3_hxbwa")]
 position = Vector2(187, 43)
 
-[node name="InteractionArea" parent="Lobby" index="0"]
-interact_label = "Enter Door"
+[node name="InteractionArea" parent="Lobby_Door" index="0"]
 interact_data = Vector2(-128, -125)
 interact_value = "lobby"
 
-[node name="CollisionShape2D" parent="Lobby/InteractionArea" index="0"]
+[node name="CollisionShape2D" parent="Lobby_Door/InteractionArea" index="0"]
 position = Vector2(-5, 20)
 
-[node name="Clown_Hallway" parent="." instance=ExtResource("3_hxbwa")]
+[node name="Clown_Hallway_Door" parent="." instance=ExtResource("3_hxbwa")]
 position = Vector2(-153, -51)
 door_locked = true
 key_item_id = "gun_dining_room"
 
-[node name="InteractionArea" parent="Clown_Hallway" index="0"]
-interact_label = "Enter Door"
+[node name="InteractionArea" parent="Clown_Hallway_Door" index="0"]
 interact_data = Vector2(-52, 7)
 interact_value = "clown_hallway"
 
-[node name="CollisionShape2D" parent="Clown_Hallway/InteractionArea" index="0"]
+[node name="CollisionShape2D" parent="Clown_Hallway_Door/InteractionArea" index="0"]
 position = Vector2(0, 3)
 
 [node name="OverworldItem" parent="." instance=ExtResource("4_xeycy")]
@@ -3424,5 +3422,5 @@ position = Vector2(25, -11)
 slot_data = SubResource("Resource_wfux5")
 item_id = "gun_dining_room"
 
-[editable path="Lobby"]
-[editable path="Clown_Hallway"]
+[editable path="Lobby_Door"]
+[editable path="Clown_Hallway_Door"]
