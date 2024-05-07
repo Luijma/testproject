@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://i7g2tbb285kn" path="res://UI/hud.tscn" id="4_h25yw"]
 [ext_resource type="PackedScene" uid="uid://bkp6ouubjdwkl" path="res://inventory.tscn" id="5_wdww8"]
 [ext_resource type="Script" path="res://inventory/Inventory_Interface.gd" id="6_cwhjr"]
-[ext_resource type="Texture2D" uid="uid://x0aj623fhopi" path="res://UI/Images/shadely_profile1.png" id="7_cbomp"]
 [ext_resource type="Texture2D" uid="uid://djvlk1dppr2wh" path="res://Item/inventory_sprites/Inventory-Menu-Sprite.png" id="7_gvuxq"]
+[ext_resource type="Texture2D" uid="uid://drqwuqvdkq570" path="res://icon.svg" id="7_k8pq7"]
 [ext_resource type="Script" path="res://main/BulletManager.gd" id="10_yb7pm"]
 [ext_resource type="Resource" uid="uid://cr5a3adq5i3rm" path="res://Dialogues/item_dialogues.dialogue" id="11_ehuts"]
 [ext_resource type="Script" path="res://main/EnemyManager.gd" id="12_twlh3"]
@@ -53,7 +53,7 @@ offset_top = 395.0
 offset_right = 710.0
 offset_bottom = 995.0
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("7_cbomp")
+texture = ExtResource("7_k8pq7")
 
 [node name="InventoryMenuTexture" type="TextureRect" parent="UI/InventoryInterface"]
 layout_mode = 1

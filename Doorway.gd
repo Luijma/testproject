@@ -30,6 +30,7 @@ func _process(delta):
 
 func _on_interact():
 	print("Entered doorway _on_interact()")
+	_was_event_experienced()
 	if(!door_locked) and event_required == false:
 		print("interact_data: " + str(interaction_area.interact_data))
 		Game.door_entered_succesful.emit("res://Levels/" + interaction_area.interact_value + ".tscn", interaction_area.interact_data)
@@ -61,3 +62,10 @@ func _on_door_unlocked():
 	Game.state_dictionary[door_id] = "unlocked"
 	print(str(Game.state_dictionary.keys()))
 	Game.door_entered_succesful.emit("res://Levels/" + interaction_area.interact_value + ".tscn")
+
+func _was_event_experienced():
+	print("entered was_event_experienced")
+	if (Game.state_dictionary.has(event_id) and Game.state_dictionary[event_id] == true):
+		event_experienced = true
+	else:
+		event_experienced = false

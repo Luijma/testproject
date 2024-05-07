@@ -1671,14 +1671,15 @@ interact_value = "dining_room"
 [node name="CollisionShape2D" parent="Dining_Room_Door/InteractionArea" index="0" groups=["Level"]]
 position = Vector2(6, -15)
 
-[node name="Art_Exhibit_Door" parent="Dining_Room_Door" instance=ExtResource("3_ljodb")]
+[node name="Art_Exhibit_Door" parent="." instance=ExtResource("3_ljodb")]
+position = Vector2(-128, -125)
 event_required = true
-event_id = "have_not_seen_ghostly_figure"
+event_id = "ghostly_figure_encountered"
 
-[node name="InteractionArea" parent="Dining_Room_Door/Art_Exhibit_Door" index="0"]
+[node name="InteractionArea" parent="Art_Exhibit_Door" index="0"]
 position = Vector2(255, 0)
 
-[node name="CollisionShape2D" parent="Dining_Room_Door/Art_Exhibit_Door/InteractionArea" index="0"]
+[node name="CollisionShape2D" parent="Art_Exhibit_Door/InteractionArea" index="0"]
 position = Vector2(1, 3)
 
 [node name="OverworldItem" parent="." instance=ExtResource("4_ogbmh")]
@@ -1687,4 +1688,4 @@ slot_data = SubResource("Resource_57l8r")
 item_id = "test_item"
 
 [editable path="Dining_Room_Door"]
-[editable path="Dining_Room_Door/Art_Exhibit_Door"]
+[editable path="Art_Exhibit_Door"]

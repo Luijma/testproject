@@ -13,4 +13,4 @@ func _ready():
 
 func _on_interact():
 	DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
-	Game.state_dictionary[interact_id] = "event_experienced"
+	#Game.state_dictionary[interact_id] = "event_experienced"

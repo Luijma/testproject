@@ -11,3 +11,12 @@ Nathan: Here are some choices.
 Nathan: For more information see the online documentation.
 
 => END
+
+~ ghostly_figure_encountered
+
+set Game.player_can_move = false
+: Oh my goodness... that's... a monster!
+set Game.state_dictionary["ghostly_figure_encountered"] = true
+: Well anyway---
+set Game.player_can_move = true
+=> END
